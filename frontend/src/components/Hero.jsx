@@ -1,47 +1,62 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 
-export default function Hero({ scrollToSimulator }) {
+export default function Hero({ goToOptimizer }) {
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-      {/* Background ambient glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
-      <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-brand-secondary/5 rounded-full blur-[90px] pointer-events-none animate-float"></div>
+    <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-brand-bg">
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-        {/* Release Badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border-brand-primary/20 text-xs font-semibold text-brand-secondary mb-6 animate-fade-in">
-          <span className="flex h-2 w-2 rounded-full bg-brand-secondary animate-ping"></span>
-          AI-Powered SQLite Optimization
+      {/* Subtle top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent" />
+
+      {/* Deep blue radial glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-950/40 border border-indigo-900/50 text-xs font-semibold text-brand-primary mb-8 shadow-inner">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
+          AI-Powered SQL Optimization · Local & Private
         </div>
 
-        {/* Main Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight max-w-4xl">
-          Supercharge SQLite Queries <br />
-          With <span className="text-gradient">Local AI Agents</span>
+        {/* Headline */}
+        <h1 className="text-4xl sm:text-5xl md:text-[3.5rem] font-extrabold tracking-tight text-brand-text mb-5 leading-[1.12]">
+          SQL Query Optimizer Agent
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed font-light">
-          An intelligent developer companion that inspects schemas, explains execution plans, benchmarks performance, and applies index rewrites locally via Ollama.
+        <p className="text-base md:text-lg text-brand-muted max-w-2xl mb-10 leading-relaxed font-semibold">
+          Paste a slow SQL query and let the agent inspect your schema, profile the execution plan,
+          suggest index rewrites, and benchmark improvement — all running locally via Ollama.
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
-            onClick={scrollToSimulator}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-brand-primary to-indigo-600 hover:from-indigo-600 hover:to-brand-primary text-white font-semibold shadow-lg shadow-brand-primary/25 hover:shadow-brand-primary/35 hover:-translate-y-0.5 transition-all duration-200"
+            onClick={goToOptimizer}
+            className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-primary hover:bg-brand-primaryHover text-white font-bold text-sm shadow-btn hover:shadow-md transition-all duration-200 active:scale-95"
           >
-            Try Interactive Simulator
-            <ArrowRight size={18} />
+            <Zap size={15} />
+            Try Optimizer Agent
+            <ArrowRight size={15} />
           </button>
 
           <a
-            href="#how-it-works"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl glass border-brand-border text-slate-300 font-semibold hover:bg-slate-800/50 hover:text-white transition-all duration-200"
+            href="#features"
+            className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#0F1420] border border-brand-border text-brand-text font-bold text-sm hover:bg-[#151b2a] hover:border-slate-700 transition-all duration-200"
           >
             How It Works
           </a>
+        </div>
+
+        {/* Trust bar */}
+        <div className="mt-14 flex flex-wrap justify-center gap-6 text-xs text-brand-muted font-bold">
+          {['SQLite · EXPLAIN QUERY PLAN', 'Ollama (Qwen / Llama3)', '100% Local · No API Keys', 'Before & After Benchmarks'].map(t => (
+            <span key={t} className="flex items-center gap-1.5">
+              <span className="w-1 h-1 rounded-full bg-brand-faint" />
+              {t}
+            </span>
+          ))}
         </div>
       </div>
     </section>

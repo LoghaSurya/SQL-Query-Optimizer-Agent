@@ -1,70 +1,69 @@
 import React from 'react';
 import { ShieldCheck, Cpu, Zap, BarChart3, Database, KeyRound } from 'lucide-react';
 
-export default function Features() {
-  const items = [
-    {
-      icon: <Cpu className="text-brand-primary" size={24} />,
-      title: "Local LLM Integration",
-      description: "Direct connection with local Ollama instance (Qwen2.5-Coder / Llama3). No API keys, no network latency, and 100% private."
-    },
-    {
-      icon: <ShieldCheck className="text-brand-secondary" size={24} />,
-      title: "Fully Secure & Private",
-      description: "All parsing, indexing, and timing occur inside your local SQLite engine. Your database schemas and query details never leak to the cloud."
-    },
-    {
-      icon: <Zap className="text-brand-accent" size={24} />,
-      title: "Before & After Profiling",
-      description: "App executes query variants multiple times using precision microsecond clocks. Instantly reveals structural improvements."
-    },
-    {
-      icon: <BarChart3 className="text-brand-primary" size={24} />,
-      title: "EXPLAIN Plan Analytics",
-      description: "Extracts and parses SQLite's internal query plans, tracking down Table Scans, Index Lookups, and Nested Joins."
-    },
-    {
-      icon: <Database className="text-brand-secondary" size={24} />,
-      title: "1-Click Index Generator",
-      description: "The AI agent generates indexing scripts and lets you apply them directly to database schemas, immediately measuring improvements."
-    },
-    {
-      icon: <KeyRound className="text-brand-accent" size={24} />,
-      title: "Interactive Demo DB",
-      description: "Includes a built-in schema generator containing 75,000+ relational rows (Customers, Products, Orders) to simulate real-world workloads."
-    }
-  ];
+const features = [
+  {
+    icon: <Cpu size={20} className="text-brand-primary" />,
+    title: 'Local LLM Integration',
+    description: 'Direct connection with your local Ollama instance (Qwen2.5-Coder / Llama3). No API keys, no latency, 100% private.',
+  },
+  {
+    icon: <ShieldCheck size={20} className="text-emerald-500" />,
+    title: 'Fully Secure & Private',
+    description: 'All parsing, indexing, and timing run inside your local SQLite engine. Schemas and queries never leave your machine.',
+  },
+  {
+    icon: <Zap size={20} className="text-amber-500" />,
+    title: 'Before & After Profiling',
+    description: 'Executes query variants multiple times with precision microsecond clocks to reveal real structural improvements.',
+  },
+  {
+    icon: <BarChart3 size={20} className="text-brand-primary" />,
+    title: 'EXPLAIN Plan Analytics',
+    description: "Parses SQLite's internal query plans, tracking Table Scans, Index Lookups, Correlated Subqueries, and Nested Joins.",
+  },
+  {
+    icon: <Database size={20} className="text-brand-secondary" />,
+    title: '1-Click Index Generator',
+    description: 'The AI agent generates and applies indexing scripts directly, then immediately re-benchmarks the improvement.',
+  },
+  {
+    icon: <KeyRound size={20} className="text-rose-500" />,
+    title: 'Interactive Demo DB',
+    description: 'Built-in schema generator with 75,000+ relational rows across Customers, Products, and Orders tables.',
+  },
+];
 
+export default function Features() {
   return (
-    <section id="features" className="py-20 border-t border-brand-border/40 relative">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Engineered for High-Performance Queries
+    <section id="features" className="py-20 bg-brand-bg border-t border-brand-border">
+      <div className="max-w-5xl mx-auto px-6">
+
+        {/* Header */}
+        <div className="text-center mb-12">
+          <p className="section-label mb-3">Capabilities</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
+            Engineered for Performance
           </h2>
-          <p className="text-slate-400">
-            A specialized optimization suite designed to analyze, refactor, and index SQLite relational databases entirely on your computer.
+          <p className="text-brand-muted max-w-xl mx-auto text-sm leading-relaxed font-semibold">
+            A specialized suite designed to analyze, refactor, and index SQLite databases entirely on your local machine.
           </p>
         </div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item, index) => (
-            <div 
-              key={index}
-              className="glass glass-hover p-8 rounded-2xl flex flex-col items-start text-left"
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className="card card-hover p-6 flex flex-col gap-4 bg-[#0F1420] border-brand-border"
             >
-              <div className="p-3 bg-slate-900/80 rounded-xl border border-brand-border mb-6">
-                {item.icon}
+              <div className="w-9 h-9 rounded-xl bg-[#090D16] border border-brand-border flex items-center justify-center shrink-0">
+                {f.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
-                {item.title}
-              </h3>
-              <p className="text-slate-400 text-sm leading-relaxed font-light">
-                {item.description}
-              </p>
+              <div>
+                <h3 className="text-sm font-bold text-brand-text mb-1">{f.title}</h3>
+                <p className="text-xs text-brand-muted leading-relaxed font-semibold">{f.description}</p>
+              </div>
             </div>
           ))}
         </div>
